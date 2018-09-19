@@ -12,6 +12,24 @@ Intended to be used with:
 2. Container Instances (e.g Azure Container Instances, AWS Fargate) that can be scheduled at specified times.
 3. Your computer! It's smaller than pgAdmin.  
 
+---
+
+## Running the Backup CronJob in Azure Kubernetes Service (AKS)
+### Step 1. Create a storage account 
+It has to be in the same Resource Group as the Kubernetes Cluster(the cluster resources not the resource group where the  Kubernetes Managed Service is located).
+
+Name the storage account uniquely. And update [pg-storage-class.yaml](./aks/pg-storage-class.yaml) to use the unique name instead of "pgbackupstorage"
+
+
+### Step 2. Replace your Database creds.
+Replace database creds in [pg-backup-cronJob.yaml](./aks/pg-backup-cronJob.yaml). !Attention: This is for simplicity these should be replaced with Secrets.
+
+### Step 3. Create the resources
+Execute below command:
+
+` kubectl create -f ./aks`
+
+---
 
 ## Running manually on your computer
 ### Step 1. Pull the image

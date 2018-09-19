@@ -1,0 +1,9 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: backup-storage
+provisioner: kubernetes.io/azure-file
+parameters:
+  location: westeurope
+  skuName: Standard_GRS
+  storageAccount: pgbackupstorage

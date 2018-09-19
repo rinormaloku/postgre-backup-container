@@ -1,0 +1,30 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: batch-every-twelve-hours
+spec:
+  schedule: "* */12 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: pgsql-backup
+            image: rinormaloku/postgres-back-up
+            env:
+            - name: PGHOST
+              value: "PGHOST_PLACEHOLDER"
+            - name: PGDATABASE
+              value: "PGDATABASE_PLACEHOLDER"
+            - name: PGUSER
+              value: "PGUSER_PLACEHOLDER"
+            - name: PGPASSWORD
+              value: "PGPASSWORD_PLACEHOLDER"
+            volumeMounts:
+            - mountPath: "/pg_backup"
+              name: backup-volume
+          volumes:
+            - name: backup-volume
+              persistentVolumeClaim:
+                claimName: pg-backup-pvc
