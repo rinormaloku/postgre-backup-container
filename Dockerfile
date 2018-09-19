@@ -1,9 +1,9 @@
 FROM alpine:3.6
 
-ENV PGHOST='pgsql-container-backup.postgres.database.azure.com'
+ENV PGHOST='localhost:5432'
 ENV PGDATABASE='postgres'
-ENV PGUSER='pgsqladmin@pgsql-container-backup'
-ENV PGPASSWORD='Passw0rd1'
+ENV PGUSER='postgres@postgres'
+ENV PGPASSWORD='password'
 
 RUN apk update
 RUN apk add postgresql
