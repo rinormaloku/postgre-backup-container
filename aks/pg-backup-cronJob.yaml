@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: batch-every-twelve-hours
 spec:
-  schedule: "* */12 * * *"
+  schedule: "0 */12 * * *"
   jobTemplate:
     spec:
       template:
