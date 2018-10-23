@@ -1,8 +1,6 @@
 # Container to create PostgreSQL Backups
 Minimalisitic container (only 25MB) for backing up Postgres databases. 
 
----
-
 ## Goal
 
 Easily backup your PostgreSQL Database. 
@@ -11,8 +9,6 @@ Intended to be used with:
 1. Kubernetes for creating CronJobs that periodically back up your database.
 2. Container Instances (e.g Azure Container Instances, AWS Fargate) that can be scheduled at specified times.
 3. Your computer! It's smaller than pgAdmin.  
-
----
 
 ## Running the Backup CronJob in Azure Kubernetes Service (AKS)
 ### Step 1. Create a storage account 
@@ -29,8 +25,6 @@ Execute below command:
 
 ` kubectl create -f ./aks`
 
----
-
 ## Running manually on your computer
 ### Step 1. Pull the image
 ` docker pull rinormaloku/postgres-back-up `
@@ -38,8 +32,6 @@ Execute below command:
 
 ### Step 2. Run and map to your drive (e.g. /d/backup)
 ` docker run -v /host/backup:/pg_backup rinormaloku/postgres-back-up `
-
----
 
 ## Contributing and Modifying
 
