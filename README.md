@@ -1,5 +1,5 @@
 # Container to create PostgreSQL Backups
-Minimalisitic container (only 25MB) for backing up Postgres databases. 
+Minimalisitic container (only 25MB) for backing up PostgreSQL databases. 
 
 ## Goal
 
