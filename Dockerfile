@@ -1,6 +1,7 @@
 FROM alpine:3.6
 
-ENV PGHOST='localhost:5432'
+ENV PGHOST='localhost'
+ENV PGPORT='5432'
 ENV PGDATABASE='postgres'
 ENV PGUSER='postgres@postgres'
 ENV PGPASSWORD='password'
